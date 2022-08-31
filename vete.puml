@@ -1,0 +1,77 @@
+@startuml
+
+
+class Cliente{
+    -nombre:String
+    -apellidos:String
+    -dni:String
+    -fechaNacimiento:Date
+    -telefono:String
+    -email:String
+
+}
+
+class Mascota{
+    -nombre:String
+    -raza:String
+    -fechaNacimiento:Date
+    -sexo:String
+    -peso:Double
+    -altura:Double
+    -color:String
+    -chip:String
+    -cliente:Cliente
+
+}
+
+class Consulta{
+    -tiempoConsulta:Date
+    -profesional:Profesional
+    -animalTratado:Mascota
+    -importe:Double
+    -resolucion:String
+    -recetas:String
+}
+
+class Profesional{
+    -nombre:String
+    -apellidos:String
+    -dni:String
+    -fechaNacimiento:Date
+    -telefono:String
+    -email:String
+}
+
+class Camara{
+    -id:String
+    -estado:String
+    -animal:Mascota
+}
+
+class GestorContenidos{
+    -id:String
+    -recetas:String
+    -documentos:String
+
+
+class Pago{
+    -id:String
+    -fecha:Date
+    -importe:Double
+    -recargo:Double
+}
+
+class Historico{
+    -id:String
+    -consultas:Consulta
+}
+
+Cliente "1" -- "*" Mascota
+Mascota "1" -- "*" Consulta
+Profesional "1" -- "*" Consulta
+Camara "1" -- "1" Mascota
+GestorContenidos "1" -- "*" Consulta
+Pago "1" -- "1" Consulta
+Historico "1" -- "1" Cliente
+Historico "1" -- "*" Consulta
+@enduml
