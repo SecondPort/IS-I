@@ -1,0 +1,9 @@
+@startuml
+
+actor cliente
+
+participant "consultar mascota" as CM
+
+cliente -> CM : consultar mascota
+
+@enduml

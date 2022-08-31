@@ -82,11 +82,9 @@ class Documento{
     -nombre:String
     -tipo:String
     -contenido:String
-    -cliente:Cliente
 }
 
 
-Documento "*" -- "1" Cliente
 Receta "*" -- "1" GestorContenidos
 Documento "*" -- "1" GestorContenidos
 Cliente "1" -- "*" Mascota
@@ -95,10 +93,10 @@ Profesional "1" -- "*" Consulta
 Camara "1" -- "1" Mascota
 GestorContenidos "1" -- "*" Consulta
 Pago "1" -- "1" Consulta
-Historico "1" -- "1" Cliente
 Historico "1" -- "*" Consulta
 
 
 
 
 @enduml
+
