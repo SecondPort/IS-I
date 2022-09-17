@@ -1,0 +1,75 @@
+
+@startuml
+
+class Pizza {
+	-variedad:String
+	-tipo:String
+	-tamaño:String
+	-precio:Double
+}
+
+class Pedido {
+	-cliente:String
+	-fecha:Date
+	-hora:Date
+	-estado:String
+	-total:Double
+}
+
+class Factura {
+	-numero:Integer
+	-fecha:Date
+	-hora:Date
+	-estado:String
+	-total:Double
+}
+
+class ItemPedido {
+	-cantidad:Integer
+	-total:Double
+}
+class DetallePedido{
+	-pizza:Pizza
+	-itemPedido:ItemPedido
+}
+class Cliente{
+	-nombre:String
+	-apellido:String
+	-dni:Integer
+	-telefono:Integer
+}
+class Reporte{
+	-variedad:String
+	-tipo:String
+	-tamaño:String
+	-cantidad:Integer
+	-total:Double
+}
+
+class ReporteIngresos{
+	-fecha:Date
+	-total:Double
+}
+
+class ReportePedidos{
+	-fecha:Date
+	-cantidad:Integer
+	-total:Double
+}
+
+
+Pizza "1" -- "*" DetallePedido
+Pedido "1" -- "*" DetallePedido
+Factura "1" -- "*" Pedido
+Cliente "1" -- "*" Pedido
+ItemPedido "1" -- "*" DetallePedido
+Reporte "1" -- "*" DetallePedido
+ReporteIngresos "1" -- "*" Reporte
+ReportePedidos "1" -- "*" Reporte
+
+@enduml
+
+/' 
+actualizacion de estado 
+
+'/
